@@ -1,12 +1,35 @@
-<!DOCTYPE html> <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"> <head> <meta charset="utf-8"> <meta
-    name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html> <html> <head>
+<title>Profile Page</title> </head> <body>
 
-<title>Corbado Example</title>
+    <h2>:/protected 🔒</h2>
+    <p>User ID: {{ $user_id }}</p>
+    <p>User Name: {{ $user_name }}</p>
+    <p>User Email: {{ $user_email }}</p>
+    <!-- Import Corbado SDK -->  
+    <script src="https://{{ $project_id }}.frontendapi.corbado.io/auth.js"></script>
+    <script src="https://{{ $project_id }}.frontendapi.corbado.io/utility.js"></script>
+    <!-- Logout button -->
+    <button id="logoutButton">Logout</button>
 
-</head>
+    <script inline="javascript">
+        const projectID = "{{ $project_id }}";
+        console.log("EPPA");
+        console.log(projectID);
+        const session = new Corbado.Session(projectID);
+        // Get logout button
+        const logoutButton = document.getElementById('logoutButton');
 
-PROFILE
+        // Add event listener to logout button
+        logoutButton.addEventListener('click', function () {
+            session.logout()
+                .then(() => {
+                    window.location.replace("/");
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+        });
+    </script>
+    </body>
 
-</body>
-
-</html>
+    </html>
