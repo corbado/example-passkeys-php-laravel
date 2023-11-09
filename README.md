@@ -32,6 +32,8 @@ a project in the [Corbado developer panel](https://app.corbado.com/signin#regist
 
 Create a .env file with the contents of the .env.example file and paste your own project ID as well as your own API secret.
 
+Also make sure that you have [PHP](https://php.net) as well as [Composer](https://getcomposer.org/) installed and accessible from your shell.
+
 ## Usage
 
-Then you can run the project locally by first downloading all dependencies with `composer install` and then starting up the local server with `php artisan serve`.
+Then you can run the project locally by first downloading all dependencies with `composer install` and then starting the local instance with `php artisan serve`.
