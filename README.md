@@ -6,19 +6,23 @@ This is a sample implementation of a PHP Laravel application that offers passkey
 
 ```
 ...
-├── .env                            # Contains all environment variables
-├── app/Http                        
-|   ├── Kernel.php                  # Controls the middleware
-|   └── Controllers
-|       └── Controller.php          # The controller for our frontend pages
+├── .env                              # Contains all environment variables
+├── app
+|   ├── Http                        
+|   |   ├── Kernel.php                # Controls the middleware
+|   |   └── Controllers
+|   |       └── Controller.php        # The controller for our frontend pages
+|   |
+|   └── Providers  
+|       └── AppServiceProvider.php    # Used to inject the Corbado project ID into all views
 |
 ├── resources
 |   └── views
-|       ├── index.blade.php         # The login page
-|       └── profile.blade.php       # The profile page
+|       ├── index.blade.php           # The login page
+|       └── profile.blade.php         # The profile page
 |
 └── routes
-    └── web.php                     # The routes for our frontend pages
+    └── web.php                       # The routes for our frontend pages
 ```
 
 ## Prerequisites
