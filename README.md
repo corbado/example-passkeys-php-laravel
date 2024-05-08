@@ -1,4 +1,4 @@
-# Passkey-First Authentication Example for PHP Laravel
+# PHP Laravel Passkey Example App
 
 This is a sample implementation of a PHP Laravel application that offers passkey authentication. For simple passkey-first authentication, the Corbado web component is used.
 
