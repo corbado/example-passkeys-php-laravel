@@ -1,36 +1,37 @@
-<!DOCTYPE html> 
-<html> 
-    <head>
-        <title>Corbado Example</title> 
-    </head> 
-    
-    <body>
-        <h2>:/protected 🔒</h2>
-        <p>User ID: {{ $user_id }}</p>
-        <p>User Name: {{ $user_name }}</p>
-        <p>User Email: {{ $user_email }}</p>
-        <!-- Import Corbado SDK -->  
-        <script src="https://{{ $project_id }}.frontendapi.corbado.io/auth.js"></script>
-        <script src="https://{{ $project_id }}.frontendapi.corbado.io/utility.js"></script>
-        <!-- Logout button -->
-        <button id="logoutButton">Logout</button>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@corbado/web-js@2.6.0/dist/bundle/index.css"
+    />
+    <script src="https://unpkg.com/@corbado/web-js@2.6.0/dist/bundle/index.js"></script>
+</head>
+<body>
+<h1>User Profile</h1>
+@if (isset($user) && $user->isAuthenticated())
+    <p><strong>Id:</strong> {{ $user->getId() }}</p>
+    <p><strong>Email:</strong> {{ $user->getEmail() }}</p>
+    <button id="logoutButton">
+        Logout
+    </button>
+    <!-- Add other user information as needed -->
+@else
+    <p>No user information available.</p>
+    <a href="/">Go back home</a>
+@endif
 
-        <script inline="javascript">
-            const projectID = "{{ $project_id }}";
-            const session = new Corbado.Session(projectID);
-            // Get logout button
-            const logoutButton = document.getElementById('logoutButton');
+<script type="module">
+    await Corbado.load({
+        projectId: "{{ config('app.CORBADO_PROJECT_ID') }}",
+        setShortSessionCookie: true
+    });
 
-            // Add event listener to logout button
-            logoutButton.addEventListener('click', function () {
-                session.logout()
-                    .then(() => {
-                        window.location.replace("/");
-                    })
-                    .catch(err => {
-                        console.error(err);
-                    });
-            });
-            </script>
-        </body>
-    </html>
+    document.getElementById("logoutButton").addEventListener("click", async () => {
+        await Corbado.logout()
+        window.location.href = "/"
+    })
+</script>
+</body>
+</html>

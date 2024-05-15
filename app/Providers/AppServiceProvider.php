@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,9 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Using Closure based composers...
-        View::composer('*', function ($view) {
-            $view->with('project_id', env('CORBADO_PROJECT_ID', 'pro-xxx'));
-        });
+        //
     }
 }
