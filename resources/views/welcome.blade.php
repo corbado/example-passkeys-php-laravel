@@ -4,9 +4,9 @@
     <title>Authentication</title>
     <link
         rel="stylesheet"
-        href="https://unpkg.com/@corbado/web-js@latest/dist/bundle/index.css"
+        href="https://unpkg.com/@corbado/web-js@2/dist/bundle/index.css"
     />
-    <script src="https://unpkg.com/@corbado/web-js@latest/dist/bundle/index.js"></script>
+    <script src="https://unpkg.com/@corbado/web-js@2/dist/bundle/index.js"></script>
 </head>
 <body>
 <div id="corbado-auth"></div>
