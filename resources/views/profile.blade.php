@@ -4,15 +4,16 @@
     <title>User Profile</title>
     <link
         rel="stylesheet"
-        href="https://unpkg.com/@corbado/web-js@2.6.0/dist/bundle/index.css"
+        href="https://unpkg.com/@corbado/web-js@latest/dist/bundle/index.css"
     />
-    <script src="https://unpkg.com/@corbado/web-js@2.6.0/dist/bundle/index.js"></script>
+    <script src="https://unpkg.com/@corbado/web-js@latest/dist/bundle/index.js"></script>
 </head>
 <body>
 <h1>User Profile</h1>
 @if (isset($user) && $user->isAuthenticated())
     <p><strong>Id:</strong> {{ $user->getId() }}</p>
     <p><strong>Email:</strong> {{ $user->getEmail() }}</p>
+    <p><strong>Orig:</strong> {{ $user->getOrig() }}</p>
     <button id="logoutButton">
         Logout
     </button>

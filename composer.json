@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "corbado/php-sdk": "^3.0",
+        "corbado/php-sdk": "^3.1",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
         "symfony/cache": "^7.0"
