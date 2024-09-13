@@ -19,7 +19,7 @@ class ProfileController extends Controller
     public function __construct()
     {
         $jwksCache = new FilesystemAdapter();
-        $config = new Corbado\Config(env("CORBADO_PROJECT_ID"), env("CORBADO_API_SECRET"));
+        $config = new Corbado\Config(env("CORBADO_PROJECT_ID"), env("CORBADO_API_SECRET"), env("CORBADO_FRONTEND_API"), env("CORBADO_BACKEND_API"));
         $config->setJwksCachePool($jwksCache);
         $this->CorbadoSDK = new Corbado\SDK($config);
     }
