@@ -27,8 +27,8 @@ class ProfileController extends Controller
     public function showProfile(Request $request)
     {
         try {
-            $user = $this->CorbadoSDK->sessions()->getCurrentUser();
-        } catch (\Exception $e) {
+            $user = $this->CorbadoSDK->sessions()->validateToken($_COOKIE['cbo_short_session']);
+        } catch (\Throwable $e) {
             error_log($e);
             return redirect('/')->withErrors('Unable to retrieve user information.');
         }
