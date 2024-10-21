@@ -13,7 +13,6 @@
 <script type="module">
     await Corbado.load({
         projectId: "{{ config('app.CORBADO_PROJECT_ID') }}",
-        setShortSessionCookie: true,
         darkMode: "off",
     });
 
